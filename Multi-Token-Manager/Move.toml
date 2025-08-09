@@ -1,0 +1,15 @@
+[package]
+name = "MultiTokenManager"
+version = "1.0.0"
+authors = []
+
+[addresses]
+varshi_add="c212233026f0e6ec9676a6f9d2a3faeec1d4a3a2d595b05d2339a4b06899f4ac"
+[dev-addresses]
+
+[dependencies.AptosFramework]
+git = "https://github.com/aptos-labs/aptos-framework.git"
+rev = "mainnet"
+subdir = "aptos-framework"
+
+[dev-dependencies]
