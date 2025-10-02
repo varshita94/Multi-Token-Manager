@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multi-Token Manager</title>
-    <!-- No external dependencies needed for basic functionality -->
     <style>
         * {
             margin: 0;
@@ -14,46 +14,69 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/
+            background-image: url('https://i.pinimg.com/736x/7c/9e/6f/7c9e6f48bc72dab099ff1931ad4d7c37.jpg');
             min-height: 100vh;
             padding: 20px;
+
         }
+
+        /*.container {
+            max-width: 1200px;
+            margin: 0 auto;
+            /* background: rgba(255, 255, 255, 0.95); 
+            background-color: #00082e00;
+           backdrop-filter: blur(5px);
+            border-radius: 20px;
+            border: #d4edda solid;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }*/
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
+            /* Use a semi-transparent color for the background */
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            /* This applies the blur behind the container */
+            -webkit-backdrop-filter: blur(10px);
+            /* For older Safari browsers */
             border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            /* So the border is also semi-transparent */
             padding: 30px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
         }
 
         h1 {
             text-align: center;
             color: #333;
             margin-bottom: 30px;
-            font-size: 2.5rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            font-size: 3.5rem;
+            background: linear-gradient(45deg, #96a9ff, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .wallet-section {
-            background: #f8f9ff;
+            background: #8b9cff27;
             border-radius: 15px;
             padding: 20px;
             margin-bottom: 30px;
-            border-left: 5px solid #667eea;
+            border-left: 2px solid #aab9ff;
         }
 
         .function-card {
-            background: white;
+            background:#8b9cff27;
             border-radius: 15px;
             padding: 25px;
             margin-bottom: 20px;
+            border-left: 2px solid #aab9ff;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #bdcaff;
         }
 
         .function-card:hover {
@@ -63,7 +86,7 @@
 
         .function-title {
             font-size: 1.4rem;
-            color: #333;
+            color: #000000;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
@@ -73,7 +96,7 @@
             width: 24px;
             height: 24px;
             margin-right: 10px;
-            fill: #667eea;
+            fill: #a1b2ff;
         }
 
         .input-group {
@@ -84,10 +107,11 @@
             display: block;
             margin-bottom: 5px;
             font-weight: 600;
-            color: #555;
+            color: #edefff;
         }
 
-        input[type="text"], input[type="number"] {
+        input[type="text"],
+        input[type="number"] {
             width: 100%;
             padding: 12px;
             border: 2px solid #e1e5e9;
@@ -96,14 +120,15 @@
             transition: border-color 0.3s ease;
         }
 
-        input[type="text"]:focus, input[type="number"]:focus {
+        input[type="text"]:focus,
+        input[type="number"]:focus {
             outline: none;
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
         .btn {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(45deg, #0a1b60, #003c81);
             color: white;
             border: none;
             padding: 12px 25px;
@@ -157,6 +182,7 @@
             border-radius: 10px;
             padding: 20px;
             margin-top: 20px;
+            color: #000447;
         }
 
         .token-item {
@@ -171,32 +197,34 @@
         }
 
         .connected {
-            color: #28a745;
+            color: #a7ffbb;
         }
 
         .disconnected {
-            color: #dc3545;
+            color: #ff7d8a;
         }
+         
 
         @media (max-width: 768px) {
             .container {
                 padding: 20px;
             }
-            
+
             h1 {
                 font-size: 2rem;
             }
-            
+
             .function-card {
                 padding: 20px;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>🪙 Multi-Token Manager</h1>
-        
+        <h1>Multi-Token Manager</h1>
+
         <!-- Wallet Connection Section -->
         <div class="wallet-section">
             <h3>Wallet Connection</h3>
@@ -209,7 +237,8 @@
         <div class="function-card">
             <h3 class="function-title">
                 <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                 </svg>
                 Initialize Token Manager
             </h3>
@@ -222,22 +251,22 @@
         <div class="function-card">
             <h3 class="function-title">
                 <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                 </svg>
                 Register & Deposit Token
             </h3>
             <p>Register a new token type and deposit an initial amount.</p>
-            
+
             <div class="input-group">
                 <label for="tokenName">Token Name:</label>
                 <input type="text" id="tokenName" placeholder="e.g., MyToken, USDC, etc.">
             </div>
-            
+
             <div class="input-group">
                 <label for="initialAmount">Initial Amount:</label>
                 <input type="number" id="initialAmount" placeholder="e.g., 1000" min="0">
             </div>
-            
+
             <button class="btn" id="registerBtn">Register Token</button>
             <div id="registerStatus" class="status" style="display: none;"></div>
         </div>
@@ -246,7 +275,7 @@
         <div class="function-card">
             <h3 class="function-title">
                 <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+                    <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" />
                 </svg>
                 Your Tokens
             </h3>
@@ -258,11 +287,11 @@
     </div>
 
     <script>
-        // Smart Contract Configuration
+        // Smart Contract Configuration - UPDATED WITH YOUR DETAILS
         const CONTRACT_CONFIG = {
-            moduleAddress: "0x1", // Replace with your deployed contract address
+            moduleAddress: "0xc212233026f0e6ec9676a6f9d2a3faeec1d4a3a2d595b05d2339a4b06899f4ac",
             moduleName: "MultiTokenManager",
-            network: "testnet" // or "mainnet"
+            network: "testnet"
         };
 
         // Global variables
@@ -270,42 +299,42 @@
         let userAccount = null;
         let aptosClient = null;
 
-        // Initialize Aptos client (placeholder - you'll need actual Aptos SDK)
+        // Initialize Aptos client
         function initializeAptosClient() {
-            // This is a placeholder - you'll need to implement actual Aptos client initialization
             console.log("Initializing Aptos client...");
+            console.log("Contract Address:", CONTRACT_CONFIG.moduleAddress);
+            console.log("Network:", CONTRACT_CONFIG.network);
         }
 
-        // Simplified wallet connection for demo/development
+        // Wallet connection
         async function connectWallet() {
             try {
                 updateStatus('initializeStatus', 'Connecting wallet...', 'pending');
-                
-                // Check if wallet is available (Petra, Martian, etc.)
+
                 if (typeof window.aptos !== 'undefined') {
                     const response = await window.aptos.connect();
                     userAccount = response.address;
                     walletConnected = true;
-                    
+
                     document.getElementById('walletStatus').textContent = 'Connected';
                     document.getElementById('walletStatus').className = 'connected';
                     document.getElementById('walletAddress').textContent = userAccount;
                     document.getElementById('connectWallet').textContent = 'Connected';
                     document.getElementById('connectWallet').disabled = true;
-                    
+
                     updateStatus('initializeStatus', 'Wallet connected successfully!', 'success');
                 } else {
-                    // Demo mode - simulate wallet connection for testing
-                    userAccount = "0x" + Math.random().toString(16).substr(2, 40);
+                    // Demo mode
+                    userAccount = "0xc212233026f0e6ec9676a6f9d2a3faeec1d4a3a2d595b05d2339a4b06899f4ac";
                     walletConnected = true;
-                    
+
                     document.getElementById('walletStatus').textContent = 'Connected (Demo)';
                     document.getElementById('walletStatus').className = 'connected';
                     document.getElementById('walletAddress').textContent = userAccount;
                     document.getElementById('connectWallet').textContent = 'Connected (Demo)';
                     document.getElementById('connectWallet').disabled = true;
-                    
-                    updateStatus('initializeStatus', 'Demo wallet connected! Install Petra wallet for real usage.', 'success');
+
+                    updateStatus('initializeStatus', 'Demo wallet connected! Install Aptos wallet for real usage.', 'success');
                 }
             } catch (error) {
                 updateStatus('initializeStatus', `Connection failed: ${error.message}`, 'error');
@@ -321,8 +350,7 @@
 
             try {
                 updateStatus('initializeStatus', 'Initializing token manager...', 'pending');
-                
-                // Placeholder for actual contract call
+
                 const payload = {
                     type: "entry_function_payload",
                     function: `${CONTRACT_CONFIG.moduleAddress}::${CONTRACT_CONFIG.moduleName}::initialize_manager`,
@@ -330,12 +358,11 @@
                     type_arguments: []
                 };
 
-                // Simulate contract call (replace with actual implementation)
                 await simulateTransaction(payload);
-                
+
                 updateStatus('initializeStatus', 'Token manager initialized successfully!', 'success');
                 refreshTokenList();
-                
+
             } catch (error) {
                 updateStatus('initializeStatus', `Initialization failed: ${error.message}`, 'error');
             }
@@ -358,7 +385,7 @@
 
             try {
                 updateStatus('registerStatus', 'Registering token...', 'pending');
-                
+
                 const payload = {
                     type: "entry_function_payload",
                     function: `${CONTRACT_CONFIG.moduleAddress}::${CONTRACT_CONFIG.moduleName}::register_and_deposit_token`,
@@ -367,28 +394,26 @@
                 };
 
                 await simulateTransaction(payload);
-                
+
                 updateStatus('registerStatus', `Token "${tokenName}" registered successfully!`, 'success');
-                
-                // Clear form
+
                 document.getElementById('tokenName').value = '';
                 document.getElementById('initialAmount').value = '';
-                
+
                 refreshTokenList();
-                
+
             } catch (error) {
                 updateStatus('registerStatus', `Registration failed: ${error.message}`, 'error');
             }
         }
 
-        // Simulate Transaction with better error handling
+        // Simulate Transaction
         async function simulateTransaction(payload) {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
-                    // Simulate successful transaction most of the time
                     if (Math.random() > 0.05) {
                         const hash = "0x" + Math.random().toString(16).substr(2, 40);
-                        resolve({ 
+                        resolve({
                             hash: hash,
                             success: true,
                             message: `Transaction successful: ${hash.substr(0, 10)}...`
@@ -396,21 +421,19 @@
                     } else {
                         reject(new Error("Network congestion - please try again"));
                     }
-                }, 1500); // Shorter delay for better UX
+                }, 1500);
             });
         }
 
         // Refresh Token List
         async function refreshTokenList() {
             if (!walletConnected) {
-                document.getElementById('tokenList').innerHTML = 
+                document.getElementById('tokenList').innerHTML =
                     '<p>Connect your wallet and initialize the manager to view your tokens.</p>';
                 return;
             }
 
             try {
-                // Placeholder for actual contract query
-                // In real implementation, you'd query the contract state
                 const mockTokens = [
                     { name: "AptosCoin", balance: 1000 },
                     { name: "USDC", balance: 500 },
@@ -432,10 +455,10 @@
                 }
 
                 document.getElementById('tokenList').innerHTML = tokenListHTML;
-                
+
             } catch (error) {
                 console.error('Failed to refresh token list:', error);
-                document.getElementById('tokenList').innerHTML = 
+                document.getElementById('tokenList').innerHTML =
                     '<p>Failed to load tokens. Please try again.</p>';
             }
         }
@@ -446,7 +469,7 @@
             element.textContent = message;
             element.className = `status ${type}`;
             element.style.display = 'block';
-            
+
             if (type === 'success') {
                 setTimeout(() => {
                     element.style.display = 'none';
@@ -455,9 +478,9 @@
         }
 
         // Event Listeners
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             initializeAptosClient();
-            
+
             document.getElementById('connectWallet').addEventListener('click', connectWallet);
             document.getElementById('initializeBtn').addEventListener('click', initializeManager);
             document.getElementById('registerBtn').addEventListener('click', registerToken);
@@ -472,4 +495,5 @@
         }, 30000);
     </script>
 </body>
+
 </html>
